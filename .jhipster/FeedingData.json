@@ -1,0 +1,38 @@
+{
+  "name": "FeedingData",
+  "fields": [
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "language",
+      "otherEntityRelationshipName": "feedingData",
+      "relationshipName": "lang",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "feeding",
+      "otherEntityRelationshipName": "feedingData",
+      "relationshipName": "feeding",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20201215232326",
+  "entityTableName": "feeding_data",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

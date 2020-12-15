@@ -1,0 +1,71 @@
+{
+  "name": "WorkingWithChildren",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otherName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "familyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthday",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "checkNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frontImage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "backImage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "verifier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "verifiedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "verificationStatus",
+      "fieldType": "VerificationStatus",
+      "fieldValues": "ADDED,VERIFYING,ACCEPTED,REJECTED"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "workingWithChildren",
+      "relationshipName": "user",
+      "otherEntityField": "login",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201216000226",
+  "entityTableName": "working_with_children",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

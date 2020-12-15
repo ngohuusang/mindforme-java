@@ -1,0 +1,54 @@
+{
+  "name": "Notification",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "NotificationType",
+      "fieldValues": "ACCEPT_FRIEND,REMOVE_FRIEND,CANCEL_FRIEND,REJECT_FRIEND,CREATE_HELPING,ACCEPT_HELPING,CONFIRM_HELPING,DECLINE_HELPING,COMPLETE_HELPING,REVIEW_HELPING,NEW_FRIEND,RENEW_SUBSCRIPTION,EXPIRED_SUBSCRIPTION"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "link",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "metaData",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "read",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "notification",
+      "relationshipName": "sender",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "notification",
+      "relationshipName": "receiver",
+      "otherEntityField": "login"
+    }
+  ],
+  "changelogDate": "20201215235726",
+  "entityTableName": "notification",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

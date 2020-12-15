@@ -1,0 +1,64 @@
+{
+  "name": "ChildHelpRequest",
+  "fields": [
+    {
+      "fieldName": "totalHelpTime",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "dateFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "timeFrom",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "timeTo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "timeType",
+      "fieldType": "TimeType",
+      "javadoc": "1= hours, 2= specific time",
+      "fieldValues": "HOUR,SPECIFIC_TIME"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otherTask",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "child",
+      "otherEntityRelationshipName": "helpRequest",
+      "relationshipName": "child",
+      "otherEntityField": "firstName",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201215235326",
+  "entityTableName": "child_help_request",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

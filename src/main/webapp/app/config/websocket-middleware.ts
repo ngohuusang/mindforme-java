@@ -56,7 +56,7 @@ const connect = () => {
 
   const headers = {};
   let url = '//' + loc.host + baseHref + '/websocket/tracker';
-  const authToken = Storage.local.get('jhi-authenticationToken') || Storage.session.get('jhi-authenticationToken');
+  const authToken = Storage.local.get('m-4-m-authenticationToken') || Storage.session.get('m-4-m-authenticationToken');
   if (authToken) {
     url += '?access_token=' + authToken;
   }

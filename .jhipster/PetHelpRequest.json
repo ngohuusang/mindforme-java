@@ -1,0 +1,63 @@
+{
+  "name": "PetHelpRequest",
+  "fields": [
+    {
+      "fieldName": "totalHelpTime",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "dateFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "timeFrom",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "timeTo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "pet",
+      "otherEntityRelationshipName": "helpRequest",
+      "relationshipName": "pet",
+      "otherEntityField": "name",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "helpRequest",
+      "otherEntityRelationshipName": "petRequest",
+      "relationshipName": "request",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201215234926",
+  "entityTableName": "pet_help_request",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

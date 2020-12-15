@@ -1,0 +1,11 @@
+id;type;minding;push_notification;email;status
+1;FRIENDS;../fake-data/blob/hipster.txt;false;IMMEDIATELY;Active
+2;PUBLIC;../fake-data/blob/hipster.txt;false;IMMEDIATELY;Active
+3;PRIVATE;../fake-data/blob/hipster.txt;false;IMMEDIATELY;Pending
+4;FRIENDS_OF_FRIENDS;../fake-data/blob/hipster.txt;false;IMMEDIATELY;Active
+5;PUBLIC;../fake-data/blob/hipster.txt;false;WEEKLY;Active
+6;PRIVATE;../fake-data/blob/hipster.txt;false;DAILY;Active
+7;PRIVATE;../fake-data/blob/hipster.txt;false;WEEKLY;Pending
+8;FRIENDS;../fake-data/blob/hipster.txt;false;WEEKLY;Pending
+9;PRIVATE;../fake-data/blob/hipster.txt;false;DAILY;Inactive
+10;FRIENDS_OF_FRIENDS;../fake-data/blob/hipster.txt;true;IMMEDIATELY;Active

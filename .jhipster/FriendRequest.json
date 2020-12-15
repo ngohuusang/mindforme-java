@@ -1,0 +1,37 @@
+{
+  "name": "FriendRequest",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "FriendRequestStatus",
+      "fieldValues": "REQUESTED,ACCEPTED,REJECTED"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "friendRequest",
+      "relationshipName": "friend",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "friendRequest",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    }
+  ],
+  "changelogDate": "20201215234526",
+  "entityTableName": "friend_request",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

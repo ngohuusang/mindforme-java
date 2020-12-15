@@ -1,0 +1,108 @@
+{
+  "name": "GardenHelpRequest",
+  "fields": [
+    {
+      "fieldName": "totalHelpTime",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "dateFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "timeFrom",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "timeTo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "services",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "edgeTrimming",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "mowingTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mowingEquipment",
+      "fieldType": "Equipment",
+      "fieldValues": "OURS,YOURS,EITHER"
+    },
+    {
+      "fieldName": "lawnTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lawnEquipment",
+      "fieldType": "Equipment",
+      "fieldValues": "OURS,YOURS,EITHER"
+    },
+    {
+      "fieldName": "rubbishLoad",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "rubbishLoadType",
+      "fieldType": "RubbishLoadType",
+      "fieldValues": "UTE,VAN"
+    },
+    {
+      "fieldName": "otherDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otherHours",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "45"
+    },
+    {
+      "fieldName": "otherEquipment",
+      "fieldType": "Equipment",
+      "fieldValues": "OURS,YOURS,EITHER"
+    },
+    {
+      "fieldName": "provideType",
+      "fieldType": "HouseProvided",
+      "fieldValues": "FAMILY,SUPPORTED"
+    },
+    {
+      "fieldName": "provideFor",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "helpRequest",
+      "otherEntityRelationshipName": "gardenRequest",
+      "relationshipName": "request",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201215235126",
+  "entityTableName": "garden_help_request",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Allergy",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "Active,Inactive,Pending"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "allergyData",
+      "otherEntityRelationshipName": "allergy",
+      "relationshipName": "allergyData"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "pet",
+      "otherEntityRelationshipName": "allergy",
+      "relationshipName": "pet",
+      "otherEntityField": "name",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "child",
+      "otherEntityRelationshipName": "allergy",
+      "relationshipName": "child",
+      "otherEntityField": "firstName",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201215231826",
+  "entityTableName": "allergy",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

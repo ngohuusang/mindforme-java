@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity MedicalConditionData.
+    -->
+    <changeSet id="20201215232726-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="lang_id"
+                                 baseTableName="medical_condition_data"
+                                 constraintName="fk_medical_condition_data_lang_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="language"/>
+
+        <addForeignKeyConstraint baseColumnNames="medical_condition_id"
+                                 baseTableName="medical_condition_data"
+                                 constraintName="fk_medical_condition_data_medical_condition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medical_condition"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Friendship.
+    -->
+    <changeSet id="20201215234626-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="friend_id"
+                                 baseTableName="friendship"
+                                 constraintName="fk_friendship_friend_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m4m_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="friendship"
+                                 constraintName="fk_friendship_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m4m_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="group_id"
+                                 baseTableName="friendship"
+                                 constraintName="fk_friendship_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="friendship_group"/>
+
+    </changeSet>
+</databaseChangeLog>

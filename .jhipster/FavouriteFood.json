@@ -1,0 +1,41 @@
+{
+  "name": "FavouriteFood",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "Active,Inactive,Pending"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "favouriteFoodData",
+      "otherEntityRelationshipName": "favouriteFood",
+      "relationshipName": "favouriteFoodData"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "child",
+      "otherEntityRelationshipName": "favouriteFood",
+      "relationshipName": "child",
+      "otherEntityField": "firstName",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201215232026",
+  "entityTableName": "favourite_food",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

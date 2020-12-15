@@ -1,0 +1,178 @@
+{
+  "name": "Family",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "45"
+    },
+    {
+      "fieldName": "karmaPoints",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "overview",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "planExpire",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "rule",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "freeMonths",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otherVerify",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "kc25Paid",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "kc75Paid",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "privacyFamily",
+      "fieldType": "Privacy",
+      "fieldValues": "PUBLIC,FRIENDS,FRIENDS_OF_FRIENDS,GROUP,PRIVATE"
+    },
+    {
+      "fieldName": "shareToFacebook",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "privacyPersonal",
+      "fieldType": "Privacy",
+      "fieldValues": "PUBLIC,FRIENDS,FRIENDS_OF_FRIENDS,GROUP,PRIVATE"
+    },
+    {
+      "fieldName": "addToCalendar",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "remindEvents",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "notifyFacebook",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "distanceRequest",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "distanceUnit",
+      "fieldType": "DistanceUnit",
+      "fieldValues": "KM,MILE"
+    },
+    {
+      "fieldName": "mailRequestFriend",
+      "fieldType": "Frequency",
+      "fieldValues": "IMMEDIATELY,DAILY,WEEKLY"
+    },
+    {
+      "fieldName": "mailRequestFriendOfFriend",
+      "fieldType": "Frequency",
+      "fieldValues": "IMMEDIATELY,DAILY,WEEKLY"
+    },
+    {
+      "fieldName": "mailRequest",
+      "fieldType": "Frequency",
+      "fieldValues": "IMMEDIATELY,DAILY,WEEKLY"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "family",
+      "relationshipName": "address",
+      "otherEntityField": "address",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "family",
+      "relationshipName": "member"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "doctor",
+      "otherEntityRelationshipName": "family",
+      "relationshipName": "doctor"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "emergencyContact",
+      "otherEntityRelationshipName": "family",
+      "relationshipName": "emergencyContact"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "familyGallery",
+      "otherEntityRelationshipName": "family",
+      "relationshipName": "gallery"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pet",
+      "otherEntityRelationshipName": "family",
+      "relationshipName": "pet"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "child",
+      "otherEntityRelationshipName": "family",
+      "relationshipName": "child"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "supported",
+      "otherEntityRelationshipName": "family",
+      "relationshipName": "supported"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "mindingNotification",
+      "otherEntityRelationshipName": "family",
+      "relationshipName": "mindingNotification"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "plan",
+      "otherEntityRelationshipName": "family",
+      "relationshipName": "plan",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20201215234126",
+  "entityTableName": "family",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

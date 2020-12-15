@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Child.
+    -->
+    <changeSet id="20201215234326-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="relation_id"
+                                 baseTableName="child"
+                                 constraintName="fk_child_relation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="child_relation"/>
+
+        <addForeignKeyConstraint baseColumnNames="child_id"
+                                 baseTableName="child_interest"
+                                 constraintName="fk_child_interest_child_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="child"/>
+
+        <addForeignKeyConstraint baseColumnNames="interest_id"
+                                 baseTableName="child_interest"
+                                 constraintName="fk_child_interest_interest_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="interest"/>
+        
+        <addForeignKeyConstraint baseColumnNames="child_id"
+                                 baseTableName="child_allergy"
+                                 constraintName="fk_child_allergy_child_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="child"/>
+
+        <addForeignKeyConstraint baseColumnNames="allergy_id"
+                                 baseTableName="child_allergy"
+                                 constraintName="fk_child_allergy_allergy_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="allergy"/>
+        
+        <addForeignKeyConstraint baseColumnNames="child_id"
+                                 baseTableName="child_favourite_food"
+                                 constraintName="fk_child_favourite_food_child_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="child"/>
+
+        <addForeignKeyConstraint baseColumnNames="favourite_food_id"
+                                 baseTableName="child_favourite_food"
+                                 constraintName="fk_child_favourite_food_favourite_food_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="favourite_food"/>
+        
+        <addForeignKeyConstraint baseColumnNames="child_id"
+                                 baseTableName="child_medical_condition"
+                                 constraintName="fk_child_medical_condition_child_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="child"/>
+
+        <addForeignKeyConstraint baseColumnNames="medical_condition_id"
+                                 baseTableName="child_medical_condition"
+                                 constraintName="fk_child_medical_condition_medical_condition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medical_condition"/>
+        
+        <addForeignKeyConstraint baseColumnNames="family_id"
+                                 baseTableName="child"
+                                 constraintName="fk_child_family_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="family"/>
+
+        <addForeignKeyConstraint baseColumnNames="request_id"
+                                 baseTableName="child"
+                                 constraintName="fk_child_request_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="help_request"/>
+
+    </changeSet>
+</databaseChangeLog>

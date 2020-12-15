@@ -1,0 +1,49 @@
+{
+  "name": "Payment",
+  "fields": [
+    {
+      "fieldName": "lastFour",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expireDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tripeCustomerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cardType",
+      "fieldType": "CardType",
+      "fieldValues": "VISA,MASTER"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "family",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "family",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    }
+  ],
+  "changelogDate": "20201215235826",
+  "entityTableName": "payment",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

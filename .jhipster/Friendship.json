@@ -1,0 +1,38 @@
+{
+  "name": "Friendship",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "friendship",
+      "relationshipName": "friend",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "friendship",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "friendshipGroup",
+      "otherEntityRelationshipName": "friendship",
+      "relationshipName": "group",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20201215234626",
+  "entityTableName": "friendship",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Interest",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "Active,Inactive,Pending"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "interestData",
+      "otherEntityRelationshipName": "interest",
+      "relationshipName": "interestData"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "child",
+      "otherEntityRelationshipName": "interest",
+      "relationshipName": "child",
+      "otherEntityField": "firstName",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201215232426",
+  "entityTableName": "interest",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "MedicalCondition",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "Active,Inactive,Pending"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "medicalConditionData",
+      "otherEntityRelationshipName": "medicalCondition",
+      "relationshipName": "medicalConditionData"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "child",
+      "otherEntityRelationshipName": "medicalCondition",
+      "relationshipName": "child",
+      "otherEntityField": "firstName",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201215232626",
+  "entityTableName": "medical_condition",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}
