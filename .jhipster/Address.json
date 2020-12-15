@@ -1,0 +1,84 @@
+{
+  "name": "Address",
+  "fields": [
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "line",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "unit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "number",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "street",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postcode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "suburb",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "Active,Inactive,Pending"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "state",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "state",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "country",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "city",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "city",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20201215231026",
+  "entityTableName": "address",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

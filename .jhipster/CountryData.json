@@ -1,0 +1,31 @@
+{
+  "name": "CountryData",
+  "fields": [
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "250"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "language",
+      "otherEntityRelationshipName": "countryData",
+      "relationshipName": "lang",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20201215230526",
+  "entityTableName": "country_data",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

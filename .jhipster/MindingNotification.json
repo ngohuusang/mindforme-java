@@ -1,0 +1,51 @@
+{
+  "name": "MindingNotification",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "Privacy",
+      "javadoc": "F for friends, FF for friends of friends, O for others.",
+      "fieldValues": "PUBLIC,FRIENDS,FRIENDS_OF_FRIENDS,GROUP,PRIVATE"
+    },
+    {
+      "fieldName": "minding",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "pushNotification",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "Frequency",
+      "javadoc": "D for daily , W for weekly and I for immediately",
+      "fieldValues": "IMMEDIATELY,DAILY,WEEKLY"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "Active,Inactive,Pending"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "family",
+      "otherEntityRelationshipName": "mindingNotification",
+      "relationshipName": "family",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201216000026",
+  "entityTableName": "minding_notification",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

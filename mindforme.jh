@@ -1,0 +1,685 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName mindforme
+    blueprints []
+    buildTool maven
+    cacheProvider ehcache
+    clientFramework react
+    clientPackageManager npm
+    clientTheme none
+    creationTimestamp 1599696000000
+    databaseType sql
+    devDatabaseType h2Disk
+    dtoSuffix DTO
+    embeddableLaunchScript false
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation false
+    jhiPrefix m4m
+    jhipsterVersion "6.10.1"
+    jwtSecretKey "MmY5YzhiYjFlZmI2ZTYxZDEyYzhhZjI3MjhiNWZjNWY4MWY0NTMyMzMxMGRmNDZmMzk2NjllNzhiNjBiMjEwY2NhMmY0NDg4ZGM2ODY3YTRlMjJmOWExYjRkZGFmZmQ2ZDgyZGIzZjFhNjViZDBmOGI5NTYxZDQyZTkzNmVlODU="
+    languages [en, fr]
+    messageBroker false
+    nativeLanguage en
+    otherModules []
+    packageName com.mindforme.app
+    prodDatabaseType mariadb
+    searchEngine elasticsearch
+    serverPort 8080
+    serviceDiscoveryType false
+    skipClient false
+    skipServer false
+    skipUserManagement false
+    testFrameworks [gatling]
+    useSass true
+    websocket spring-websocket
+  }
+
+  entities Country, CountryData, City, CityData, State, StateData, Address, EmergencyContact, Doctor, Plan, PlanData, Language, Coupon, CouponType, Allergy, AllergyData, FavouriteFood, FavouriteFoodData, Feeding, FeedingData, Interest, InterestData, MedicalCondition, MedicalConditionData, PetType, PetTypeData, PetBreed, PetBreedData, WalkingOther, WalkingOtherData, Rule, RuleData, ChildRelation, ChildRelationData, SupportedRelation, SupportedRelationData, FamilyGallery, Family, Pet, Child, Supported, FriendRequest, Friendship, FriendshipGroup, HelpRequest, PetHelpRequest, HouseHelpRequest, GardenHelpRequest, SupportedHelpRequest, ChildHelpRequest, Invitation, Message, MessageItem, Notification, Payment, PublicHoliday, MindingNotification, UserIdentification, WorkingWithChildren
+}
+
+enum Status {
+	Active, Inactive, Pending
+}
+
+entity Country {
+	name String,
+	code String required maxlength(10),
+	status Status
+}
+
+entity CountryData {
+	content String maxlength(250)
+}
+
+entity City {
+	name String,
+	latitude BigDecimal,
+	longitude BigDecimal,
+
+	status Status
+}
+
+entity CityData {
+	content String maxlength(250)
+}
+
+entity State {
+	name String,
+	status Integer required
+}
+
+entity StateData {
+	content String maxlength(250)
+}
+
+entity Address {
+  address String,
+  name String,
+  latitude BigDecimal,
+  longitude BigDecimal,
+  line String,
+  unit String,
+  number String,
+  street String,
+  postcode String,
+  suburb String,
+  status Status
+}
+entity EmergencyContact {
+	name String maxlength(15),
+	relationToYou String maxlength(150),
+	phoneNumber String maxlength(15),
+	email String required maxlength(100),
+}
+entity Doctor {
+	doctorName String maxlength(15),
+	phoneNumber String maxlength(15),
+	email String required maxlength(100),
+	medicalPractice String required maxlength(100),
+}
+
+entity Plan {
+	name String,
+	amount String maxlength(10),
+	months Integer,
+	status Status,
+    type PlanType
+}
+
+entity PlanData {
+	content String maxlength(255)
+}
+
+entity Language {
+  code String,
+  name String,
+  isDefault Boolean,
+  active Boolean
+}
+entity Coupon {
+  name String,
+  expireDate Instant,
+  email String,
+  message TextBlob,
+  code String,
+  usedBy Long
+}
+entity CouponType {
+  name String,
+  value Integer
+}
+
+entity Allergy {
+	name String,
+	status Status
+}
+
+entity AllergyData {
+	content String maxlength(255)
+}
+
+entity FavouriteFood {
+	name String,
+	status Status
+}
+
+entity FavouriteFoodData {
+	content String maxlength(255)
+}
+
+entity Feeding {
+	name String,
+	status Status
+}
+
+entity FeedingData {
+	content String maxlength(255)
+}
+
+entity Interest {
+	name String,
+	status Status
+}
+
+entity InterestData {
+	content String maxlength(255)
+}
+
+entity MedicalCondition {
+	name String,
+	status Status
+}
+
+entity MedicalConditionData {
+	content String maxlength(255)
+}
+
+entity PetType {
+	name String,
+	status Status
+}
+
+entity PetTypeData {
+	content String maxlength(255)
+}
+
+entity PetBreed {
+	name String,
+	status Status
+}
+
+entity PetBreedData {
+	content String maxlength(255)
+}
+
+entity WalkingOther {
+	name String,
+	status Status
+}
+
+entity WalkingOtherData {
+	content String maxlength(255)
+}
+
+entity Rule {
+	name String,
+	status Status
+}
+
+entity RuleData {
+	content String maxlength(255)
+}
+
+entity ChildRelation {
+	name String,
+	status Status
+}
+
+entity ChildRelationData {
+	content String maxlength(255)
+}
+
+entity SupportedRelation {
+	name String,
+	status Status
+}
+
+entity SupportedRelationData {
+	content String maxlength(255)
+}
+
+entity FamilyGallery {
+  imageUrl String,
+  sortOrder Integer,
+  isDefault Boolean,
+  privacy Privacy
+}
+entity Family {
+
+    name String maxlength(45),
+  	karmaPoints Integer,
+  	overview String,
+  	rating String,
+  	imageUrl String,
+  	planExpire Instant,
+
+    rule TextBlob,
+
+  	freeMonths String,
+  	otherVerify Integer,
+  	kc25Paid Boolean,
+  	kc75Paid Boolean,
+
+    privacyFamily Privacy
+    shareToFacebook Boolean
+    privacyPersonal Privacy
+    addToCalendar Boolean
+    remindEvents Boolean
+    notifyFacebook Boolean
+    distanceRequest Float
+    distanceUnit DistanceUnit
+    mailRequestFriend Frequency
+    mailRequestFriendOfFriend Frequency
+    mailRequest Frequency
+}
+
+entity Pet {
+	name String,
+	imageUrl String,
+	birthday Instant,
+	status Status
+}
+
+entity Child {
+	firstName String,
+    lastName String,
+	imageUrl String,
+	birthday Instant,
+	status Status
+}
+
+entity Supported {
+	firstName String,
+    lastName String,
+	imageUrl String,
+	birthday Instant,
+	status Status
+}
+
+entity FriendRequest {
+  status FriendRequestStatus
+}
+entity Friendship {
+}
+entity FriendshipGroup {
+  name String required,
+  description String,
+  order Integer,
+  numberOfMembers Integer
+}
+
+enum HelpRequestStatus {
+	NEW, ACCEPTED, APPROVED, COMPLETED, RATED, UNDONE, CANCEL
+}
+
+enum HelpType {
+	CHILD, PET, SUPPORTED, HOUSE, GARDEN
+}
+
+enum HelpLocation {
+	OUR_OR_YOUR_HOME, OUR_HOME, YOUR_HOME, OTHER
+}
+
+enum FamilyAdminRole {
+	SPOUSE, SIBLING, PARENT, GRANDPARENT
+}
+
+entity HelpRequest {
+	title String,
+    type HelpType,
+	acceptance String maxlength(255),
+	/** N for New , A for accepted, AP for approved and c for complete.,R-rated/Completelu done */
+	requestStatus HelpRequestStatus ,
+    isOffer Boolean,
+	offerTo Privacy,
+	message TextBlob,
+    instruction TextBlob,
+
+	status Status,
+	/** 0 for at our home or your home1 for at our home2 for at your home3 for Other */
+	locationType HelpLocation
+
+    realStart Instant,
+    realEnd Instant,
+    rating Integer,
+    requesterComment String,
+    helperComment String,
+    flagged Integer,
+    coins Float,
+    bonus Float,
+}
+
+entity PetHelpRequest {
+	totalHelpTime Long,
+	dateFrom Instant,
+	dateTo Instant,
+	timeFrom String maxlength(10),
+	timeTo String maxlength(10),
+	content String maxlength(255),
+}
+
+enum Equipment {
+	OURS, YOURS, EITHER
+}
+
+enum HouseProvided {
+	FAMILY, SUPPORTED
+}
+
+entity HouseHelpRequest {
+	services TextBlob,
+	cleaningTime Long,
+	cleaningFromTime Instant,
+	cleaningToTime Instant,
+	cleaningEquipment Equipment,
+	cleaningDescription String,
+	cookingFromTime Instant,
+	cookingToTime Instant,
+	cookingServes Integer,
+	cookingData String,
+	pickupType Integer required,
+	houseMindingDetail TextBlob,
+	mailFromDate Instant,
+	mailToDate Instant,
+	mailAfter String maxlength(45),
+	mailCollectionDays String maxlength(255),
+	otherDescription String maxlength(255),
+	otherHours Long,
+	otherFromTime Instant,
+	otherToTime Instant,
+	otherEquipment Equipment,
+	provideFor Long,
+	provideType HouseProvided
+}
+
+enum RubbishLoadType {
+	UTE, VAN
+}
+
+entity GardenHelpRequest {
+	totalHelpTime Long,
+	dateFrom Instant,
+	dateTo Instant,
+	timeFrom String maxlength(10),
+	timeTo String maxlength(10),
+	services String,
+	edgeTrimming Boolean,
+	mowingTime String,
+	mowingEquipment Equipment,
+	lawnTime String,
+	lawnEquipment Equipment,
+	rubbishLoad Integer,
+	rubbishLoadType RubbishLoadType,
+	otherDescription String,
+	otherHours String maxlength(45),
+	otherEquipment Equipment,
+	provideType HouseProvided,
+    provideFor Integer
+}
+
+enum SupportedHelpType {
+	WITH_ERRAN, AT_HOME, COMPANY, OTHER
+}
+
+entity SupportedHelpRequest {
+	totalHelpTime Long,
+	dateFrom Instant,
+	dateTo Instant,
+	timeFrom String maxlength(10),
+	timeTo String maxlength(10),
+	/** 1= hours, 2= specific time */
+	timeType TimeType,
+	supportedHelpType SupportedHelpType,
+	content String,
+	otherTask String
+}
+
+entity ChildHelpRequest {
+	totalHelpTime Long,
+	dateFrom Instant,
+	dateTo Instant,
+	timeFrom String maxlength(10),
+	timeTo String maxlength(10),
+	/** 1= hours, 2= specific time */
+	timeType TimeType,
+	content String,
+	otherTask String
+}
+
+entity Invitation {
+  email String,
+  facebook String,
+  freePeriod Instant
+}
+entity Message {
+}
+entity MessageItem {
+  content String
+  read Boolean
+}
+entity Notification {
+  type NotificationType,
+  content String,
+  link String,
+  metaData TextBlob,
+  read Boolean
+}
+
+entity Payment {
+  lastFour String,
+  expireDate String,
+  tripeCustomerId String,
+  cardType CardType
+}
+
+entity PublicHoliday {
+  day Integer,
+  month Integer,
+  year Integer,
+  name String
+}
+entity MindingNotification {
+	/** F for friends, FF for friends of friends, O for others.*/
+	type Privacy,
+	minding TextBlob
+	pushNotification Boolean,
+	/** D for daily , W for weekly and I for immediately*/
+	email Frequency,
+	status Status
+}
+
+entity UserIdentification {
+  idType IdType,
+  name String,
+  expired String,
+  idNumber String,
+  frontImage String,
+  backImage String,
+  note String,
+  verifier String,
+  verifiedDate Instant,
+  verificationStatus VerificationStatus
+}
+entity WorkingWithChildren {
+  firstName String,
+  otherName String,
+  familyName String,
+  birthday Instant,
+  checkNumber String,
+  frontImage String,
+  backImage String,
+  note String,
+  verifier String,
+  verifiedDate Instant,
+  verificationStatus VerificationStatus
+}
+enum TimeType {
+	HOUR, SPECIFIC_TIME
+}
+
+enum FriendRequestStatus {
+  REQUESTED,
+  ACCEPTED,
+  REJECTED
+}
+enum DistanceUnit {
+  KM,
+  MILE
+}
+
+enum ProfileType {
+  MASTER,
+  FAMILY_ADMIN
+}
+enum NotificationType {
+  ACCEPT_FRIEND,
+  REMOVE_FRIEND,
+  CANCEL_FRIEND,
+  REJECT_FRIEND,
+  CREATE_HELPING,
+  ACCEPT_HELPING,
+  CONFIRM_HELPING,
+  DECLINE_HELPING,
+  COMPLETE_HELPING,
+  REVIEW_HELPING,
+  NEW_FRIEND,
+  RENEW_SUBSCRIPTION,
+  EXPIRED_SUBSCRIPTION
+}
+enum CardType {
+  VISA,
+  MASTER
+}
+enum PlanType {
+  FREE,
+  PAID
+}
+enum Privacy {
+  PUBLIC,
+  FRIENDS,
+  FRIENDS_OF_FRIENDS,
+  GROUP,
+  PRIVATE
+}
+
+enum IdType {
+  PASSPORT,
+  DRIVER_LICENSE,
+  OTHER
+}
+enum VerificationStatus {
+  ADDED,
+  VERIFYING,
+  ACCEPTED,
+  REJECTED
+}
+enum Frequency {
+  IMMEDIATELY,
+  DAILY,
+  WEEKLY
+}
+relationship OneToMany {
+   Family{member(firstName)} to User,
+   CouponType{coupon} to Coupon{type(name)},
+   Message{item} to MessageItem{message},
+   State{city(name)} to City{state(name)},
+   City{cityData} to CityData{city(name)},
+   State{stateData} to StateData{state(name)},
+   FavouriteFood{favouriteFoodData} to FavouriteFoodData{favouriteFood(name)},
+   Feeding{feedingData(name)} to FeedingData{feeding(name)},
+   Interest{interestData} to InterestData{interest(name)},
+   MedicalCondition{medicalConditionData} to MedicalConditionData{medicalCondition(name)},
+   PetType{petBreed} to PetBreed{petType(name)},
+   PetBreed{petBreedData} to PetBreedData{petBreed(name)},
+   PetType{petTypeData} to PetTypeData{petType(name)},
+   Plan{plansData} to PlanData{plan(name)},
+   WalkingOther{walkingOtherData} to WalkingOtherData{walkingOther(name)},
+   Allergy{allergyData} to AllergyData{allergy(name)},
+   Rule{ruleData} to RuleData{rule(name)},
+   ChildRelation{relationData} to ChildRelationData{relation(name)},
+   SupportedRelation{relationData} to SupportedRelationData{relation(name)},
+   Family{doctor(name)} to Doctor{family(name)},
+   Family{emergencyContact(name)} to EmergencyContact{family(name)},
+   Family{gallery(imageUrl)} to FamilyGallery{family(name)},
+
+   Family{pet(name)} to Pet{family(name)},
+   Family{child(name)} to Child{family(name)},
+
+   Family{supported(name)} to Supported{family(name)},
+
+   Family{mindingNotification} to MindingNotification{family},
+   Country{publicHoliday(name)} to PublicHoliday{country(name)},
+
+   FriendshipGroup{friendship(name)} to Friendship{group(name)},
+
+   HelpRequest{gardenRequest} to GardenHelpRequest{request},
+   HelpRequest{houseRequest} to HouseHelpRequest{request},
+   HelpRequest{petRequest} to PetHelpRequest{request},
+   HelpRequest{supportedRequest} to SupportedHelpRequest{request},
+   HelpRequest{childRequest} to Child{request},
+}
+
+relationship ManyToOne {
+	Address{state(name)} to State,
+    Address{country(name)} to Country,
+    Address{city(name)} to City,
+	
+	CityData{lang(name)} to Language,
+	CountryData{lang(name)} to Language,
+  	StateData{lang(name)} to Language,
+    FavouriteFoodData{lang(name)} to Language,
+	FeedingData{lang(name)} to Language,
+    InterestData{lang(name)} to Language,
+	MedicalConditionData{lang(name)} to Language,
+	PetBreedData{lang(name)} to Language,
+    PetTypeData{lang(name)} to Language,
+	PlanData{lang(name)} to Language,
+    WalkingOtherData{lang(name)} to Language,
+    AllergyData{lang(name)} to Language,
+    RuleData{lang(name)} to Language,
+    ChildRelationData{lang(name)} to Language,
+    SupportedRelationData{lang(name)} to Language,
+
+    Payment{family(name)} to Family,
+    Family{plan(name)} to Plan,
+    Pet{breed(name)} to PetBreed,
+    Pet{petType(name)} to PetType,
+
+    Child{relation(name)} to ChildRelation,
+    Supported{relation(name)} to SupportedRelation,
+
+	Friendship{friend(login)} to User,
+    Friendship{user(login)} to User,
+    FriendRequest{friend(login)} to User,
+    FriendRequest{user(login)} to User,
+    Invitation{user(login)} to User,
+    Message{sender(login)} to User,
+    Message{receiver(login)} to User,
+    MessageItem{sender(login)} to User,
+    Notification{sender(login)} to User,
+    Notification{receiver(login)} to User,
+    Payment{user(login)} to User,
+
+    HelpRequest{helpLocation} to Address,
+}
+
+relationship ManyToMany {
+	Pet{feeding(name)} to Feeding{pet(name)},
+    Pet{rule(name)} to Rule{pet(name)},
+    Pet{allergy(name)} to Allergy{pet(name)},
+    Pet{walking(name)} to WalkingOther{pet(name)},
+
+    Child{interest(name)} to Interest{child(firstName)},
+    Child{allergy(name)} to Allergy{child(firstName)},
+    Child{favouriteFood(name)} to FavouriteFood{child(firstName)},
+    Child{medicalCondition(name)} to MedicalCondition{child(firstName)},
+
+    PetHelpRequest{pet(name)} to Pet{helpRequest},
+    ChildHelpRequest{child(firstName)} to Child{helpRequest},
+    SupportedHelpRequest{supported(firstName)} to Supported{helpRequest},
+}
+
+relationship OneToOne {
+	UserIdentification{user(login)} to User,
+	WorkingWithChildren{user(login)} to User,
+	Family{address(address)} to Address,
+    EmergencyContact{address(address)} to Address,
+    Doctor{address(address)} to Address,
+}
+
+dto * with mapstruct
+paginate * with pagination
+service * with serviceImpl

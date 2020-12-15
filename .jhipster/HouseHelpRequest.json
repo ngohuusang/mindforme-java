@@ -1,0 +1,129 @@
+{
+  "name": "HouseHelpRequest",
+  "fields": [
+    {
+      "fieldName": "services",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "cleaningTime",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "cleaningFromTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "cleaningToTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "cleaningEquipment",
+      "fieldType": "Equipment",
+      "fieldValues": "OURS,YOURS,EITHER"
+    },
+    {
+      "fieldName": "cleaningDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cookingFromTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "cookingToTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "cookingServes",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cookingData",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pickupType",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "houseMindingDetail",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "mailFromDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "mailToDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "mailAfter",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "45"
+    },
+    {
+      "fieldName": "mailCollectionDays",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "otherDescription",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "otherHours",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "otherFromTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "otherToTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "otherEquipment",
+      "fieldType": "Equipment",
+      "fieldValues": "OURS,YOURS,EITHER"
+    },
+    {
+      "fieldName": "provideFor",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "provideType",
+      "fieldType": "HouseProvided",
+      "fieldValues": "FAMILY,SUPPORTED"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "helpRequest",
+      "otherEntityRelationshipName": "houseRequest",
+      "relationshipName": "request",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201215235026",
+  "entityTableName": "house_help_request",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

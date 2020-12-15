@@ -1,0 +1,48 @@
+{
+  "name": "City",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "Active,Inactive,Pending"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "cityData",
+      "otherEntityRelationshipName": "city",
+      "relationshipName": "cityData"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "state",
+      "otherEntityRelationshipName": "city",
+      "relationshipName": "state",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20201215230626",
+  "entityTableName": "city",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Label, Row, Col } from 'reactstrap';
 import { AvForm, AvGroup, AvInput, AvField, AvFeedback } from 'availity-reactstrap-validation';
-import { Translate, translate } from 'react-jhipster';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { locales, languages } from 'app/config/translation';
 import { getUser, getRoles, updateUser, createUser, reset } from './user-management.reducer';
 import { IRootState } from 'app/shared/reducers';
 
@@ -47,9 +46,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h1>
-            <Translate contentKey="userManagement.home.createOrEditLabel">Create or edit a User</Translate>
-          </h1>
+          <h1>Create or edit a User</h1>
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -60,16 +57,12 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
             <AvForm onValidSubmit={saveUser}>
               {user.id ? (
                 <AvGroup>
-                  <Label for="id">
-                    <Translate contentKey="global.field.id">ID</Translate>
-                  </Label>
+                  <Label for="id">ID</Label>
                   <AvField type="text" className="form-control" name="id" required readOnly value={user.id} />
                 </AvGroup>
               ) : null}
               <AvGroup>
-                <Label for="login">
-                  <Translate contentKey="userManagement.login">Login</Translate>
-                </Label>
+                <Label for="login">Login</Label>
                 <AvField
                   type="text"
                   className="form-control"
@@ -77,28 +70,26 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
                   validate={{
                     required: {
                       value: true,
-                      errorMessage: translate('register.messages.validate.login.required'),
+                      errorMessage: 'Your username is required.',
                     },
                     pattern: {
                       value: '^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$',
-                      errorMessage: translate('register.messages.validate.login.pattern'),
+                      errorMessage: 'Your username is invalid.',
                     },
                     minLength: {
                       value: 1,
-                      errorMessage: translate('register.messages.validate.login.minlength'),
+                      errorMessage: 'Your username is required to be at least 1 character.',
                     },
                     maxLength: {
                       value: 50,
-                      errorMessage: translate('register.messages.validate.login.maxlength'),
+                      errorMessage: 'Your username cannot be longer than 50 characters.',
                     },
                   }}
                   value={user.login}
                 />
               </AvGroup>
               <AvGroup>
-                <Label for="firstName">
-                  <Translate contentKey="userManagement.firstName">First Name</Translate>
-                </Label>
+                <Label for="firstName">First Name</Label>
                 <AvField
                   type="text"
                   className="form-control"
@@ -106,16 +97,14 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
                   validate={{
                     maxLength: {
                       value: 50,
-                      errorMessage: translate('entity.validation.maxlength', { max: 50 }),
+                      errorMessage: 'This field cannot be longer than 50 characters.',
                     },
                   }}
                   value={user.firstName}
                 />
               </AvGroup>
               <AvGroup>
-                <Label for="lastName">
-                  <Translate contentKey="userManagement.lastName">Last Name</Translate>
-                </Label>
+                <Label for="lastName">Last Name</Label>
                 <AvField
                   type="text"
                   className="form-control"
@@ -123,7 +112,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
                   validate={{
                     maxLength: {
                       value: 50,
-                      errorMessage: translate('entity.validation.maxlength', { max: 50 }),
+                      errorMessage: 'This field cannot be longer than 50 characters.',
                     },
                   }}
                   value={user.lastName}
@@ -133,24 +122,24 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
               <AvGroup>
                 <AvField
                   name="email"
-                  label={translate('global.form.email.label')}
-                  placeholder={translate('global.form.email.placeholder')}
+                  label="Email"
+                  placeholder={'Your email'}
                   type="email"
                   validate={{
                     required: {
                       value: true,
-                      errorMessage: translate('global.messages.validate.email.required'),
+                      errorMessage: 'Your email is required.',
                     },
                     email: {
-                      errorMessage: translate('global.messages.validate.email.invalid'),
+                      errorMessage: 'Your email is invalid.',
                     },
                     minLength: {
                       value: 5,
-                      errorMessage: translate('global.messages.validate.email.minlength'),
+                      errorMessage: 'Your email is required to be at least 5 characters.',
                     },
                     maxLength: {
                       value: 254,
-                      errorMessage: translate('global.messages.validate.email.maxlength'),
+                      errorMessage: 'Your email cannot be longer than 50 characters.',
                     },
                   }}
                   value={user.email}
@@ -158,26 +147,11 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
               </AvGroup>
               <AvGroup check>
                 <Label>
-                  <AvInput type="checkbox" name="activated" value={user.activated} checked={user.activated} disabled={!user.id} />{' '}
-                  <Translate contentKey="userManagement.activated">Activated</Translate>
+                  <AvInput type="checkbox" name="activated" value={user.activated} checked={user.activated} disabled={!user.id} /> Activated
                 </Label>
               </AvGroup>
               <AvGroup>
-                <Label for="langKey">
-                  <Translate contentKey="userManagement.langKey">Language Key</Translate>
-                </Label>
-                <AvField type="select" className="form-control" name="langKey" value={user.langKey || locales[0]}>
-                  {locales.map(locale => (
-                    <option value={locale} key={locale}>
-                      {languages[locale].name}
-                    </option>
-                  ))}
-                </AvField>
-              </AvGroup>
-              <AvGroup>
-                <Label for="authorities">
-                  <Translate contentKey="userManagement.profiles">Profiles</Translate>
-                </Label>
+                <Label for="authorities">Profiles</Label>
                 <AvInput type="select" className="form-control" name="authorities" value={user.authorities} multiple>
                   {roles.map(role => (
                     <option value={role} key={role}>
@@ -189,15 +163,12 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
               <Button tag={Link} to="/admin/user-management" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
-                <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
-                </span>
+                <span className="d-none d-md-inline">Back</span>
               </Button>
               &nbsp;
               <Button color="primary" type="submit" disabled={isInvalid || updating}>
                 <FontAwesomeIcon icon="save" />
-                &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
+                &nbsp; Save
               </Button>
             </AvForm>
           )}

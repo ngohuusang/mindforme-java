@@ -1,0 +1,38 @@
+{
+  "name": "FavouriteFoodData",
+  "fields": [
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "language",
+      "otherEntityRelationshipName": "favouriteFoodData",
+      "relationshipName": "lang",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "favouriteFood",
+      "otherEntityRelationshipName": "favouriteFoodData",
+      "relationshipName": "favouriteFood",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20201215232126",
+  "entityTableName": "favourite_food_data",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

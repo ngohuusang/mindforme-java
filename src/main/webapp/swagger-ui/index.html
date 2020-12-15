@@ -47,8 +47,8 @@
                     SwaggerUIBundle.plugins.DownloadUrl
                 ],
                 requestInterceptor: function(req) {
-                    var authToken = JSON.parse(localStorage.getItem("jhi-authenticationToken")
-                        || sessionStorage.getItem("jhi-authenticationToken"));
+                    var authToken = JSON.parse(localStorage.getItem("m-4-m-authenticationToken")
+                        || sessionStorage.getItem("m-4-m-authenticationToken"));
                     if (authToken) {
                         req.headers['Authorization'] = "Bearer " + authToken;
                     }

@@ -1,0 +1,68 @@
+{
+  "name": "UserIdentification",
+  "fields": [
+    {
+      "fieldName": "idType",
+      "fieldType": "IdType",
+      "fieldValues": "PASSPORT,DRIVER_LICENSE,OTHER"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expired",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frontImage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "backImage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "verifier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "verifiedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "verificationStatus",
+      "fieldType": "VerificationStatus",
+      "fieldValues": "ADDED,VERIFYING,ACCEPTED,REJECTED"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "userIdentification",
+      "relationshipName": "user",
+      "otherEntityField": "login",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201216000126",
+  "entityTableName": "user_identification",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

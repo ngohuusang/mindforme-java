@@ -1,0 +1,38 @@
+{
+  "name": "PetTypeData",
+  "fields": [
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "language",
+      "otherEntityRelationshipName": "petTypeData",
+      "relationshipName": "lang",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "petType",
+      "otherEntityRelationshipName": "petTypeData",
+      "relationshipName": "petType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20201215232926",
+  "entityTableName": "pet_type_data",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "FamilyGallery",
+  "fields": [
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sortOrder",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "isDefault",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "privacy",
+      "fieldType": "Privacy",
+      "fieldValues": "PUBLIC,FRIENDS,FRIENDS_OF_FRIENDS,GROUP,PRIVATE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "family",
+      "otherEntityRelationshipName": "gallery",
+      "relationshipName": "family",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20201215234026",
+  "entityTableName": "family_gallery",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

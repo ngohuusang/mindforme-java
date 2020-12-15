@@ -1,0 +1,41 @@
+{
+  "name": "Rule",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "Active,Inactive,Pending"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "ruleData",
+      "otherEntityRelationshipName": "rule",
+      "relationshipName": "ruleData"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "pet",
+      "otherEntityRelationshipName": "rule",
+      "relationshipName": "pet",
+      "otherEntityField": "name",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201215233426",
+  "entityTableName": "rule",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "FriendshipGroup",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "order",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numberOfMembers",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "friendship",
+      "otherEntityRelationshipName": "group",
+      "relationshipName": "friendship"
+    }
+  ],
+  "changelogDate": "20201215234726",
+  "entityTableName": "friendship_group",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "State",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "city",
+      "otherEntityRelationshipName": "state",
+      "relationshipName": "city"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "stateData",
+      "otherEntityRelationshipName": "state",
+      "relationshipName": "stateData"
+    }
+  ],
+  "changelogDate": "20201215230826",
+  "entityTableName": "state",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

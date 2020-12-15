@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity ChildHelpRequest.
+    -->
+    <changeSet id="20201215235326-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="child_help_request_id"
+                                 baseTableName="child_help_request_child"
+                                 constraintName="fk_child_help_request_child_child_help_request_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="child_help_request"/>
+
+        <addForeignKeyConstraint baseColumnNames="child_id"
+                                 baseTableName="child_help_request_child"
+                                 constraintName="fk_child_help_request_child_child_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="child"/>
+        
+    </changeSet>
+</databaseChangeLog>

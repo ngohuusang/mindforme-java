@@ -1,0 +1,138 @@
+{
+  "name": "HelpRequest",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "HelpType",
+      "fieldValues": "CHILD,PET,SUPPORTED,HOUSE,GARDEN"
+    },
+    {
+      "fieldName": "acceptance",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "requestStatus",
+      "fieldType": "HelpRequestStatus",
+      "javadoc": "N for New , A for accepted, AP for approved and c for complete.,R-rated/Completelu done",
+      "fieldValues": "NEW,ACCEPTED,APPROVED,COMPLETED,RATED,UNDONE,CANCEL"
+    },
+    {
+      "fieldName": "isOffer",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "offerTo",
+      "fieldType": "Privacy",
+      "fieldValues": "PUBLIC,FRIENDS,FRIENDS_OF_FRIENDS,GROUP,PRIVATE"
+    },
+    {
+      "fieldName": "message",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "instruction",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "Active,Inactive,Pending"
+    },
+    {
+      "fieldName": "locationType",
+      "fieldType": "HelpLocation",
+      "javadoc": "0 for at our home or your home1 for at our home2 for at your home3 for Other",
+      "fieldValues": "OUR_OR_YOUR_HOME,OUR_HOME,YOUR_HOME,OTHER"
+    },
+    {
+      "fieldName": "realStart",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "realEnd",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "requesterComment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "helperComment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "flagged",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "coins",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "bonus",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "gardenHelpRequest",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "gardenRequest"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "houseHelpRequest",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "houseRequest"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "petHelpRequest",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "petRequest"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "supportedHelpRequest",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "supportedRequest"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "child",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "childRequest"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "helpRequest",
+      "relationshipName": "helpLocation",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201215234826",
+  "entityTableName": "help_request",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

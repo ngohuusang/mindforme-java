@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { translate, Storage } from 'react-jhipster';
+
 import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
 import { getSession } from 'app/shared/reducers/authentication';
 
@@ -58,13 +58,9 @@ export const saveAccountSettings: (account: any) => void = account => async disp
     type: ACTION_TYPES.UPDATE_ACCOUNT,
     payload: axios.post(apiUrl, account),
     meta: {
-      successMessage: translate('settings.messages.success'),
+      successMessage: '<strong>Settings saved!</strong>',
     },
   });
-
-  if (Storage.session.get(`locale`)) {
-    Storage.session.remove(`locale`);
-  }
 
   await dispatch(getSession());
 };

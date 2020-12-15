@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Pet.
+    -->
+    <changeSet id="20201215234226-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="breed_id"
+                                 baseTableName="pet"
+                                 constraintName="fk_pet_breed_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pet_breed"/>
+
+        <addForeignKeyConstraint baseColumnNames="pet_type_id"
+                                 baseTableName="pet"
+                                 constraintName="fk_pet_pet_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pet_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="pet_id"
+                                 baseTableName="pet_feeding"
+                                 constraintName="fk_pet_feeding_pet_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pet"/>
+
+        <addForeignKeyConstraint baseColumnNames="feeding_id"
+                                 baseTableName="pet_feeding"
+                                 constraintName="fk_pet_feeding_feeding_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="feeding"/>
+        
+        <addForeignKeyConstraint baseColumnNames="pet_id"
+                                 baseTableName="pet_rule"
+                                 constraintName="fk_pet_rule_pet_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pet"/>
+
+        <addForeignKeyConstraint baseColumnNames="rule_id"
+                                 baseTableName="pet_rule"
+                                 constraintName="fk_pet_rule_rule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rule"/>
+        
+        <addForeignKeyConstraint baseColumnNames="pet_id"
+                                 baseTableName="pet_allergy"
+                                 constraintName="fk_pet_allergy_pet_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pet"/>
+
+        <addForeignKeyConstraint baseColumnNames="allergy_id"
+                                 baseTableName="pet_allergy"
+                                 constraintName="fk_pet_allergy_allergy_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="allergy"/>
+        
+        <addForeignKeyConstraint baseColumnNames="pet_id"
+                                 baseTableName="pet_walking"
+                                 constraintName="fk_pet_walking_pet_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pet"/>
+
+        <addForeignKeyConstraint baseColumnNames="walking_id"
+                                 baseTableName="pet_walking"
+                                 constraintName="fk_pet_walking_walking_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="walking_other"/>
+        
+        <addForeignKeyConstraint baseColumnNames="family_id"
+                                 baseTableName="pet"
+                                 constraintName="fk_pet_family_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="family"/>
+
+    </changeSet>
+</databaseChangeLog>

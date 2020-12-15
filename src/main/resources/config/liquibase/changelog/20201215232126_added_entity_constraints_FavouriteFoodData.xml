@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity FavouriteFoodData.
+    -->
+    <changeSet id="20201215232126-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="lang_id"
+                                 baseTableName="favourite_food_data"
+                                 constraintName="fk_favourite_food_data_lang_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="language"/>
+
+        <addForeignKeyConstraint baseColumnNames="favourite_food_id"
+                                 baseTableName="favourite_food_data"
+                                 constraintName="fk_favourite_food_data_favourite_food_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="favourite_food"/>
+
+    </changeSet>
+</databaseChangeLog>

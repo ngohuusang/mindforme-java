@@ -1,0 +1,37 @@
+{
+  "name": "Message",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "messageItem",
+      "otherEntityRelationshipName": "message",
+      "relationshipName": "item"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "message",
+      "relationshipName": "sender",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "message",
+      "relationshipName": "receiver",
+      "otherEntityField": "login"
+    }
+  ],
+  "changelogDate": "20201215235526",
+  "entityTableName": "message",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}

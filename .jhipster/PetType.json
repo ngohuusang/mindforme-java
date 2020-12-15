@@ -1,0 +1,39 @@
+{
+  "name": "PetType",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "Active,Inactive,Pending"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "petBreed",
+      "otherEntityRelationshipName": "petType",
+      "relationshipName": "petBreed"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "petTypeData",
+      "otherEntityRelationshipName": "petType",
+      "relationshipName": "petTypeData"
+    }
+  ],
+  "changelogDate": "20201215232826",
+  "entityTableName": "pet_type",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mindforme"]
+}
